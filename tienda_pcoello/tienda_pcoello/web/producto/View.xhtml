@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProductoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProductoLabel_idproducto}"/>
+                    <h:outputText value="#{productoController.selected.idproducto}" title="#{bundle.ViewProductoTitle_idproducto}"/>
+                    <h:outputText value="#{bundle.ViewProductoLabel_nombre}"/>
+                    <h:outputText value="#{productoController.selected.nombre}" title="#{bundle.ViewProductoTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewProductoLabel_descripcion}"/>
+                    <h:outputText value="#{productoController.selected.descripcion}" title="#{bundle.ViewProductoTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewProductoLabel_imagen}"/>
+                    <h:outputText value="#{productoController.selected.imagen}" title="#{bundle.ViewProductoTitle_imagen}"/>
+                    <h:outputText value="#{bundle.ViewProductoLabel_precio}"/>
+                    <h:outputText value="#{productoController.selected.precio}" title="#{bundle.ViewProductoTitle_precio}"/>
+                    <h:outputText value="#{bundle.ViewProductoLabel_stock}"/>
+                    <h:outputText value="#{productoController.selected.stock}" title="#{bundle.ViewProductoTitle_stock}"/>
+                    <h:outputText value="#{bundle.ViewProductoLabel_categoria}"/>
+                    <h:outputText value="#{productoController.selected.categoria}" title="#{bundle.ViewProductoTitle_categoria}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productoController.destroyAndView}" value="#{bundle.ViewProductoDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewProductoEditLink}"/>
+                <br />
+                <h:commandLink action="#{productoController.prepareCreate}" value="#{bundle.ViewProductoCreateLink}" />
+                <br />
+                <h:commandLink action="#{productoController.prepareList}" value="#{bundle.ViewProductoShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewProductoIndexLink}" action="/adminIndex" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

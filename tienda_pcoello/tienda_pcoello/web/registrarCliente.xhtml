@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Inicio</title>
+         <h:outputStylesheet name="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        EL CORTE FRANCÈS        
+        <br/>
+        <br/>
+        <h:outputLabel styleClass="MensajeRegistroNuevo" value="REGISTRAR NUEVO USUARIO"/> 
+                
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <br/>
+            <br/>
+            <br/>
+            <br/> 
+        </h:form> 
+        <h:form styleClass="DatosUsuario">
+        <table id="tablaRegistrarUsuarios" styleClass="tablaRegistrarUsuarios" style="background-color: grey;position: absolute;top: 170px" border="1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h:outputLabel value="Nombre" for="Nombre" /></td>
+                        <td><h:inputText id="nombre" value="#{clienteController.cliente.nombre}" title="#{bundle.ViewClienteLabel_nombre}" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Apellidos" for="Apellidos" /></td>
+                        <td><h:inputText id="apellidos" value="#{clienteController.cliente.apellidos}" title="#{bundle.ViewClienteLabel_apellidos}" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Direccion" for="Apellidos" /></td>
+                        <td><h:inputText id="direccion" value="#{clienteController.cliente.direccion}" title="#{bundle.ViewClienteLabel_direccion}" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Usuario" for="Usuario" /></td>
+                        <td><h:inputText id="usuario" value="#{clienteController.cliente.usuario}" title="#{bundle.ViewClienteLabel_direccion}" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Contraseña" for="Password" /></td>
+                        <td><h:inputSecret id="password" value="#{clienteController.cliente.password}" title="#{bundle.ViewClienteLabel_direccion}"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h:commandButton title="Aceptar" action="#{clienteController.registrarNuevoUsuario()}" value="Aceptar" />
+            <br />
+            <h:commandLink value="Atrás" action="/carrito" immediate="true" />
+        </h:form>
+</h:body>
+</html>

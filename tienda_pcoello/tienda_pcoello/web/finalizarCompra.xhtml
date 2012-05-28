@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Inicio</title>
+         <h:outputStylesheet name="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        <h4> EL CORTE FRANCÈS   </h4>     
+        <h3>¡SU PEDIDO SE HA REALIZADO CORRECTAMENTE!</h3>
+        <br/>
+        <h3>GRACIAS POR SU VISITA </h3>
+        <h:form>
+            <h:outputLabel value="#{clienteController.fechaCadTarjeta}" for="fecha" />
+        </h:form>
+        <h:form>
+            <h:commandLink value="Volver a página principal" action="/index" immediate="true" >
+                <f:ajax listener="#{productoController.actualizarStock()}"/>
+            </h:commandLink>            
+        </h:form>
+</h:body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Pedidos Anteriores</title>
+         <h:outputStylesheet name="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        <h4> ZONA DE VISUALIZACIÓN DE PEDIDOS.      </h4>
+        <h6> Pedido hecho por: </h6>
+        <h:outputLabel styleClass="fuenteDatos" value="#{clienteController.cliente.nombre}" for="nombre" />
+        <h:outputLabel styleClass="fuenteDatos" value="#{clienteController.cliente.apellidos}" for="apellidos" />          
+        <h5> ARTICULOS DEL PEDIDO SELECCIONADO   </h5>
+        <f:view>
+            <h:form styleClass="jsfcrud_list_form">
+                <h:dataTable value="#{pedidosproductosController.listaAnterior}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">   
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cantidad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cantidad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Producto"/>
+                        </f:facet>   
+                        <h:outputText value="#{productoController.idByNombre(item.producto1.idproducto)}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+        <h:form>
+            <h:commandLink value="Volver a Zona Cliente" action="/carrito" />
+        </h:form>   
+    </h:body>
+     
+</html>

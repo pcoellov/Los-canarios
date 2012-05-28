@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Inicio</title>
+         <h:outputStylesheet name="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        EL CORTE FRANCÈS  
+            <h:form styleClass="jsfcrud_list_search">
+                <h:outputLabel value="#{bundle.ViewProductoLabel_nombre}" for="nombre" />
+                <h:inputText id="nombre" value="#{productoController.nombre}" title="#{bundle.ViewProductoTitle_nombre}" />
+                <h:outputLabel value="#{bundle.ViewProductoLabel_categoria}" for="categoria" />
+                <h:inputText id="categoria" value="#{productoController.nombreCategoria}" title="#{bundle.ViewProductoTitle_categoria}" />
+                <h:outputLabel value="#{bundle.ViewProductoLabel_precio}" for="precio" />
+                <h:inputText id="precio" value="#{productoController.precio}"  title="#{bundle.ViewProductoTitle_precio}" size="8"/>
+                
+                <h:commandButton title="Buscar" action="/buscar" value="Buscar" />
+            </h:form>
+        
+        
+                        
+
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListProductoEmpty}" rendered="#{productoController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{productoController.items.rowCount > 0}">                
+                <h:commandLink action="#{productoController.previous}" value="#{bundle.Previous} #{productoController.pagination.pageSize}" rendered="#{productoController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{productoController.next}" value="#{bundle.Next} #{productoController.pagination.pageSize}" rendered="#{productoController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{productoController.inicializar()}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPedidosproductosTitle_cantidad}"/>
+                        </f:facet>
+                        <h:inputText id="cantidad" value="#{carritoController.cantidad}" size="8"/>                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_nombre}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombre}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_descripcion}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcion}"/>
+                        
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_imagen}"/>
+                        </f:facet>
+                        <img src="#{item.imagen}"/>
+                        
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_precio}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precio}"/>
+                        
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_categoria}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categoria.nombre}"/>
+                        
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Disponibilidad"/>
+                            
+                        </f:facet>
+                        
+                        <h:outputText value="#{productoController.disponibilidadProducto(item.stock)}"/>                        
+                        
+                    </h:column>
+                    <h:column>
+                        <h:commandButton  class="Carrito"  title="Añadir al Carrito" action="#{carritoController.anyadirProductoCarrito()}">
+                            <f:setPropertyActionListener target="#{carritoController.producto}" value="#{item}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            
+            <h:commandButton title="Ver Carrito" action="/carrito" value="Ver Carrito" />
+            <br />
+            <h:commandLink value="#{bundle.ListProductoIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        
+        <h:form styleClass="jsfcrud_folleto">
+             <h:outputLabel value="Visítenos"/>
+        </h:form> 
+</h:body>
+</html>
+

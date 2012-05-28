@@ -1,0 +1,281 @@
+/*root { 
+    display: block;
+}*/
+
+body {
+    font-family: Verdana, Arial, Helvetica;
+    color: red;
+    font-size:xx-large;
+    font-weight: bold;
+    margin: 5% 10% 0;
+}
+
+h3{
+    color: black;
+    text-align: center;
+    font-size: 40%;
+}
+
+h4{
+    color: gray;
+    text-align: center;
+}
+
+h5{
+    color: black;
+    text-align: left;
+    font-size: 40%;
+}
+
+h6{
+    color: black;
+    text-align: left;
+    font-size: 40%;
+}
+
+.fuenteDatos{
+    font-size: 50%;    
+}
+
+.tablaRegistrarUsuarios{
+    background-color: grey;position: absolute;top: 170px;    
+}
+
+linkRealizarCompra{
+    text-align: left;
+}
+
+linkRealizarCompra{
+    color: blue;
+    
+}
+
+form.jsfcrud_list_search {
+    color: #036;
+    font-size:medium;
+    margin-top: 35px;
+    text-align: center;
+    padding-top: 40px;
+    width: 900px;
+    height: 60px;
+    border:2px solid;
+    border-color:#C8C9CA #9E9E9E #9E9E9E #C8C9CA;
+    background: url(frutas2.jpg);
+}
+
+form.jsfcrud_list_form {
+    color: #036;
+    empty-cells: show;
+    width: 300px;
+    float:left;
+}
+
+form.jsfcrud_list_form th, td th {
+    background:#C4C4C4 url(button_bg.png) repeat-x 0 0;
+    font-size: small;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #90b4bd;
+    border-right-color: #90b4bd;
+    letter-spacing: 3px;
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 50px;
+}
+
+form.jsfcrud_list_form td, td td {
+    font-size: x-small;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #b2d5d6;
+    border-right-color: #b2d5d6;
+    vertical-align: middle;
+}
+
+input.Carrito {
+    background:url(carrito_alcampo.png) no-repeat;
+    height: 25px;
+    width: 30px;
+} 
+
+tr.jsfcrud_odd_row {
+    background-color: #fefeff;
+}
+
+tr.jsfcrud_even_row {
+    background-color: #eff5fa;
+}
+
+form.jsfcrud_folleto {
+    color:green;
+    font-size: small;
+    text-align:center;
+    float:right;
+    background:url("folletos.png") no-repeat top center;
+    height: 300px;
+    width: 165px;
+    margin-top: 25px;
+    margin-right: 130px;
+}
+
+a {
+    color: #e33b06;
+    font-size:small;
+    margin-left: 800px;
+}
+
+label.MensajeCarrito, label.MensajeRegistroNuevo {
+    color: black;
+    font-size: medium;
+    margin-left: -200px;
+}
+
+.jsfcrud_list_form_carrito {
+    color: #036;
+    empty-cells: show;
+    width: 200px;
+    float:left;
+    margin-top: 50px;
+}
+
+.jsfcrud_list_form_carrito th, td th {
+    background:#C4C4C4 url(button_bg.png) repeat-x 0 0;
+    font-size: small;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #90b4bd;
+    border-right-color: #90b4bd;
+    letter-spacing: 3px;
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 50px;
+}
+
+.jsfcrud_list_form_carrito td, td td {
+    font-size: x-small;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #b2d5d6;
+    border-right-color: #b2d5d6;
+    vertical-align: middle;
+}
+
+label.MensajePrecioTotal {
+    color: black;
+    font-size: medium;
+}
+
+label.MensajePrecioaPagar {
+    color: black;
+    font-size: xx-large;
+    text-decoration: overline;
+}
+
+.Validacion {
+   color: #036;
+   font-size: small;
+   position: relative;
+   top: -120px;
+   left: 200px;
+}
+
+.Registro {
+    position: relative;
+    top: 21px;
+    left: -800px;
+
+}
+
+.DatosUsuario {
+    color: #036;
+    font-size: small;
+    position: relative;
+    top: -90px;
+    width: 200px;
+    height: 450px;    
+}
+
+
+
+
+
+
+
+
+
+
+
+.UsuarioRegistrado{
+    color: #036;
+    font-size: small;
+    width: 200px;
+    position: relative;
+    top: -80px;
+    left: 380px;
+}
+
+.UsuarioNoRegistrado {
+    color: #036;
+    font-size: small;
+    width: 200px;
+    position: relative;
+    top: -145px;
+    left: 380px;
+}
+
+
+
+.FormaPago {
+    width: 300px;
+}
+
+
+
+
+
+
+
+
+#busyImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}

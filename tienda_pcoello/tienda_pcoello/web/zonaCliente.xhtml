@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Inicio</title>
+         <h:outputStylesheet name="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        <h4>Zona Cliente  </h4>
+        <br/>
+        <br/>
+        <h5>Bienvenido/a </h5>
+        <h:outputLabel styleClass="fuenteDatos" value="#{clienteController.cliente.nombre}" for="nombre" />
+        <h:outputLabel styleClass="fuenteDatos" value="#{clienteController.cliente.apellidos}" for="apellidos" />          
+        <br/>
+        <br/>
+        <h6>CARRITO DE LA COMPRA </h6>       
+        <f:view>
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:dataTable value="#{carritoController.listaCarrito}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPedidosproductosTitle_cantidad}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cantidad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_nombre}"/>                            
+                        </f:facet>
+                        <h:outputText value="#{item.producto.nombre}"/>                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_descripcion}"/>                            
+                        </f:facet>
+                        <h:outputText value="#{item.producto.descripcion}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_imagen}"/>                            
+                        </f:facet>
+                        <img src="#{item.producto.imagen}"/>                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_precio}"/>                            
+                        </f:facet>
+                        <h:outputText value="#{item.producto.precio}"/>
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoTitle_categoria}"/>                            
+                        </f:facet>
+                        <h:outputText value="#{item.producto.categoria.nombre}"/>
+
+                    </h:column>  
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value=""/>
+                        </f:facet>
+                        <h:commandButton title="Borrar producto" action="#{carritoController.borrarProducto()}" value="Borrar" >
+                            <f:setPropertyActionListener target="#{carritoController.carrito}" value="#{item}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                <br/>
+                PRECIO TOTAL:             
+                <h:outputLabel value="#{carritoController.precioTotal}" for="precioTotal" />
+                <br/>
+                <h:commandLink style="position:absolute" value="Realizar compra" action="/resumenCompra" immediate="true" />
+                <br/>
+            </h:form>
+        </f:view>
+        <br/>
+        <br/>
+        <h:form>
+            <h:commandLink value="Cancelar" action="#{carritoController.borrarCarritoZC()}" immediate="Cancelar pedido" />
+            <h:commandButton value="Log out" action="#{clienteController.cancel()}"/>
+        </h:form>
+        <br/>
+        <br/>
+        <h6> PEDIDOS ANTERIORES </h6>
+        <f:view>
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:dataTable value="#{clienteController.filtrarPedidoCliente()}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px"> >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Idpedido"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idpedido}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fecha"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fecha}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Preciototal"/>
+                        </f:facet>
+                        <h:outputText value="#{item.preciototal}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Metodopago"/>
+                        </f:facet>
+                        <h:outputText value="#{pedidoController.metodoPago(item.metodopago)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado"/>
+                        </f:facet>
+                        <h:outputText value="#{pedidoController.estadoPedido(item.estado)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cliente"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cliente}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cliente"/> 
+                        </f:facet>
+                        <h:commandButton title="Ver Pedido" action="/pedidoAntiguo" value="Ver" >
+                            <f:ajax listener="#{pedidosproductosController.listaPedidoAntiguo(item)}"/> 
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

@@ -1,0 +1,1 @@
+<f:ajax listener="#{pedidosproductosController.insertarListaProducto()}"/>
