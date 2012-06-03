@@ -33,6 +33,7 @@ public class PedidosproductosFacade extends AbstractFacade<Pedidosproductos> {
     public void insertarNuevo(Pedidosproductos pedidosproductos){
         em.persist(pedidosproductos);
     }
+    
     public List<Pedidosproductos> pedidoAnterior(int id) {
         Query q;
         List<Pedidosproductos> p = null;

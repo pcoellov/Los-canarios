@@ -31,7 +31,7 @@ public class PedidoController implements Serializable {
     
     @ManagedProperty(value="#{carritoController}")
     private CarritoController carritoController;
-    
+
     private Pedido current;
     private Pedido pedido;
     private DataModel items = null;
@@ -330,8 +330,6 @@ public class PedidoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
     
-    
-    
    public String nuevoPedido() {
         Calendar c = Calendar.getInstance();
         String dia = Integer.toString(c.get(Calendar.DATE));
@@ -339,10 +337,13 @@ public class PedidoController implements Serializable {
         String annio = Integer.toString(c.get(Calendar.YEAR));
         String fecha = dia + "/" + mes + "/" + annio;
         Cliente cl = clienteController.getCliente();
+        String cad = clienteController.getFechaCadTarjeta();
+        String tar = clienteController.getNumeroTarjeta();
+        clienteController.actualizarDatosBancarios(cl, cad,tar);
         float precio = (float)(Math.round((carritoController.getPrecioTotal())*100.0)/100.0);
         pedido = new Pedido(fecha, precio, metodoPago, 0, cl);
         ejbFacade.nuevoPedido(pedido); 
-        lista = ejbFacade.findAll();
+        lista = ejbFacade.todosPedidos();
         return "/finalizarCompra";
     }
 

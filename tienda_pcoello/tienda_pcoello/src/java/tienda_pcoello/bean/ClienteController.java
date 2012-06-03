@@ -63,7 +63,13 @@ public class ClienteController implements Serializable {
     public ClienteFacade getEjbFacade() {
         return ejbFacade;
     }
-
+    
+    public void actualizarDatosBancarios(Cliente cl, String fecha, String numero) {
+        Cliente buscar = ejbFacade.find(cl.getIdcliente());
+        buscar.setFechacadtarjeta(fecha);
+        buscar.setNumerotarjeta(numero);
+    }
+    
     public void setEjbFacade(ClienteFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }

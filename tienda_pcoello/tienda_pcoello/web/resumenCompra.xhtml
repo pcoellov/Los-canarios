@@ -88,9 +88,9 @@
                         <h:outputLabel value="#{carritoController.precioTotal}" for="precioTotal" />
                         <br/>
                         <br/> 
-                        <h:commandButton title="FinalizarCompra" action="#{pedidoController.nuevoPedido()}" value="Finalizar Compra">
-                          
-                        </h:commandButton>
+                        <h:commandButton title="FinalizarCompra" action="#{pedidosproductosController.insertarListaProducto()}" value="Finalizar Compra">
+                            <f:ajax listener="#{pedidoController.nuevoPedido()}"/>
+                        </h:commandButton> 
                     </h:panelGroup>
                 </h:form>               
                 <br/>

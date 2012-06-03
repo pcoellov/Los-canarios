@@ -4,9 +4,11 @@
  */
 package tienda_pcoello.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import tienda_pcoello.entity.Pedido;
 
 /**
@@ -31,4 +33,13 @@ public class PedidoFacade extends AbstractFacade<Pedido> {
         em.persist(pedido);
         
     }
+    
+    public List<Pedido> todosPedidos(){
+        Query q;
+        List<Pedido> p = null;
+        q = em.createQuery("SELECT p FROM Pedido p");
+        p = q.getResultList();
+        return p;
+    }
+   
 }

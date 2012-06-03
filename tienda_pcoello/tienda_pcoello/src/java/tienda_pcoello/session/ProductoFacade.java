@@ -95,11 +95,12 @@ public class ProductoFacade extends AbstractFacade<Producto> {
         Producto p;
         q = em.createQuery("SELECT p FROM Producto p WHERE p.idproducto = :idproducto");
         q.setParameter("idproducto", id);
-        try {
+        /*try {
             p = (Producto) q.getSingleResult();
         } catch (NoResultException e) {
             p = new Producto("Producto no encontrado");
-        }
+        }*/
+        p = (Producto) q.getSingleResult();
         return p.getNombre();
     }
     

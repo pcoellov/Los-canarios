@@ -44,7 +44,6 @@ public class PedidosproductosController implements Serializable {
     private int selectedItemIndex;
     private List<CarritoController> listaAnteriores = new ArrayList();
     private List<Pedidosproductos> listaAnterior = new ArrayList();
-   
 
     
     public PedidosproductosController() {
@@ -330,7 +329,7 @@ public class PedidosproductosController implements Serializable {
         }
     }
 
-    public void insertarListaProducto() {
+    public String insertarListaProducto() {
         List<CarritoController> listaActualizaciones = carritoController.getListaCarrito();
         int cantidad2;
         Producto producto;
@@ -349,10 +348,12 @@ public class PedidosproductosController implements Serializable {
             p = new Pedidosproductos(pk, cantidad2);
             ejbFacade.insertarNuevo(p);
         }
+        return "/finalizarCompra";
     }
     
     public void listaPedidoAntiguo(Pedido pedido) {
-        listaAnterior = ejbFacade.pedidoAnterior(pedido.getIdpedido());
+        int id = pedido.getIdpedido();
+        listaAnterior = ejbFacade.pedidoAnterior(id);
         
         
 

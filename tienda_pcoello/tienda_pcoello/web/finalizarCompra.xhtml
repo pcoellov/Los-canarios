@@ -13,7 +13,10 @@
         <br/>
         <h3>GRACIAS POR SU VISITA </h3>
         <h:form>
-            <h:outputLabel value="#{clienteController.fechaCadTarjeta}" for="fecha" />
+            Número de tarjeta: <br/>
+            <h:outputLabel value="#{clienteController.numeroTarjeta}" for="tarjeta" />
+            Fecha de caducidad: <br/>
+            <h:outputLabel value="#{clienteController.fechaCadTarjeta}" for ="fecha" />
         </h:form>
         <h:form>
             <h:commandLink value="Volver a página principal" action="/index" immediate="true" >
